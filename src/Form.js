@@ -10,7 +10,7 @@ export default function Form(props) {
             const response = await axios.post("http://127.0.0.1:8000/problem-1/", {
               data: data
             });
-            console.log("Response:", response.data);
+            // console.log("Response:", response.data);
             document.getElementById("output-1").textContent = response.data.options_number;
             setData(response.data)
           } catch (error) {
