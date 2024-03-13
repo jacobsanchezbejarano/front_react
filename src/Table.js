@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 const Table = (props) => {
     useEffect(() => {
         const n = props.data.n;
-        const puntosMarcados = props.data.options;
-        const obstaculos = props.data.obstacles;
+        const highlighted = props.data.options;
+        const obstacles = props.data.obstacles;
 
         const table = document.getElementById('table');
         table.innerHTML = "";
@@ -17,14 +17,14 @@ const Table = (props) => {
                 const cell = document.createElement('div');
                 cell.className = (i + j) % 2 === 0 ? 'cell white' : 'cell gray';
 
-                if (puntosMarcados.some(function(punto) {
-                    return punto[0] === j + 1 && punto[1] === n - i;
+                if (highlighted.some(function(point) {
+                    return point[0] === j + 1 && point[1] === n - i;
                 })) {
                     cell.classList.add('marked');
                 }
 
-                if (obstaculos.some(function(obstaculo) {
-                    return obstaculo[0] === j + 1 && obstaculo[1] === n - i;
+                if (obstacles.some(function(obstacle) {
+                    return obstacle[0] === j + 1 && obstacle[1] === n - i;
                 })) {
                     cell.classList.add('obstacle');
                 }
